@@ -1,6 +1,6 @@
 import random
 
-# unfinished prisoners_dilemma code
+# unfinished code for prisoners dilemma
 
 def mySolution(history):
     if len(history) == 0:
