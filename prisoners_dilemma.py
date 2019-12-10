@@ -1,24 +1,31 @@
 import random
 
-# unfinished code for prisoners dilemma
+# unfinished prisoners_dilemma code
 
 def mySolution(history):
     if len(history) == 0:
-        return "betray"
-    if len(history) > 0:
+        return "C"
+    else:
         check = []
         (you, them) = history[-1] #Access the most recent move made by both players. History is always a list of tuples consisting of your move and then your opponent's move.
         check.append(them)
-        if "c" in check:
-            number = random.randint(1,10)
-            if number == 10:
-                return "betray"
-    else:
-        return "collude"
-    return "betray"
+        if "C" in check:
+            number = random.randint(1, 100)
+            if number <= 75:
+                return "B"
+            else:
+                return "C"
+        else:
+            number = random.randint(1, 100)
+            if number <= 75:
+                return "C"
+            else:
+                return "B"
 
-history = [(" ", input("Action: "))]
+history = [(" ", " ")]
+
 while(True):
     move = mySolution(history)
     print(move)
-    history.append((move, input("Action: ")))
+    opponentMove = input("Action: ").upper()
+    history.append((move, opponentMove))
